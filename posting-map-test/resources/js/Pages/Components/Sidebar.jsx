@@ -19,7 +19,7 @@ const Sidebar = () => {
   // 市区町村に対応する金額を取得
   const fetchAreaPrice = (AreasName) => {
     console.log('送信するエリア名:', AreasName);  // エリア名が正しく送信されているか確認
-    fetch('http://xs940773.xsrv.jp/', {
+    fetch('http://create-system.site/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const Sidebar = () => {
       price: areaPrices[areaName] || 0,
     }));
 
-    fetch('http://xs940773.xsrv.jp/order', {
+    fetch('http://create-system.site/order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ const Sidebar = () => {
             <p className="text-xl font-bold mt-2">合計: ¥{totalPrice.toLocaleString()}</p>
 
             {/* 送信ボタン */}
-            <form method="POST" action="http://xs940773.xsrv.jp/order" className="mt-4">
+            <form method="POST" action="http://create-system.site/order" className="mt-4">
               <input type="hidden" name="_token" value={csrfToken} />
               <input type="hidden" name="total_price" value={totalPrice} />
               <input type="hidden" name="areas" value={JSON.stringify(Array.from(selectedAreas))} />
