@@ -10,4 +10,12 @@ export default defineConfig({
         }),
         react(),
     ],
+    base: '/build/', // ← ビルド後のURLパス
+    build: {
+        outDir: 'public_html/build', // ← Xserver上の公開ディレクトリに合わせる
+        manifest: true,
+        rollupOptions: {
+            input: 'resources/js/app.jsx',
+        },
+    },
 });
